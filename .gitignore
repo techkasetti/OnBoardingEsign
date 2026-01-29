@@ -1,0 +1,19 @@
+# Salesforce
+.sfdx/
+.salesforce/
+dist/
+.DS_Store
+node_modules/
+npm-debug.log
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+
+# Dependencies
+package-lock.json

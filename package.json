@@ -1,0 +1,23 @@
+{
+  "name": "OnBoardingEsign",
+  "version": "1.0.0",
+  "description": "Salesforce OnBoardingEsign project",
+  "scripts": {
+    "lint": "eslint **/{aura,lwc}/**",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "prettier": "prettier --write \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
+    "prettier:verify": "prettier --list-different \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\""
+  },
+  "devDependencies": {
+    "@lwc/eslint-plugin-lwc": "^1.0.0",
+    "@prettier/plugin-xml": "^2.1.0",
+    "@salesforce/eslint-config-lwc": "^3.0.0",
+    "@salesforce/sfdx-lwc-jest": "^1.1.0",
+    "eslint": "^8.0.0",
+    "jest": "^27.0.0",
+    "prettier": "^2.7.0",
+    "prettier-plugin-apex": "^1.11.0"
+  }
+}

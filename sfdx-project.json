@@ -1,0 +1,17 @@
+{
+  "sfdcLoginUrl": "https://login.salesforce.com",
+  "projectName": "OnBoardingEsign",
+  "sourceApiVersion": "61.0",
+  "packageDirectories": [
+    {
+      "path": "force-app",
+      "default": true,
+      "package": "OnBoardingEsign",
+      "versionNumber": "1.0.0.0"
+    }
+  ],
+  "namespace": "",
+  "packageAliases": {
+    "OnBoardingEsign": "0Ho000000000000"
+  }
+}
