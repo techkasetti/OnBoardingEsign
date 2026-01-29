@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>AdvancedSecurityEngine</members>
+        <members>BiometricSecurityEngine</members>
+        <members>ClauseGenerator</members>
+        <members>AuditTrailManager</members>
+        <members>ComplianceChecker</members>
+        <members>FraudDetectionRulesEngine</members>
+        <members>FacePlusPlusService</members>
+        <members>EmailNotificationService</members>
+        <members>DocumentLifecycleDeploymentManager</members>
+        <members>DocumentAnalysisService</members>
+        <members>SystemHealthController</members>
+        <members>SignatureRequestController</members>
+        <members>SecurityDashboardController</members>
+        <members>AdvancedAIService</members>
+        <name>ApexClass</name>
+    </types>
+
+    <types>
+        <members>documentGenerator</members>
+        <members>documentViewer</members>
+        <members>faceVerification</members>
+        <members>signaturePad</members>
+        <members>securityDashboard</members>
+        <members>systemHealthMonitor</members>
+        <name>LightningComponentBundle</name>
+    </types>
+
+    <types>
+        <members>DocumentLifecycleConfiguration__c</members>
+        <members>Signature_Request__c</members>
+        <members>AuditTrail__c</members>
+        <name>CustomObject</name>
+    </types>
+
+    <types>
+        <!-- Signature_Request__c fields referenced by LWCs / Apex -->
+        <members>Signature_Request__c.Status__c</members>
+        <members>Signature_Request__c.SignerName__c</members>
+        <members>Signature_Request__c.SignerEmail__c</members>
+        <members>Signature_Request__c.DocumentId__c</members>
+        <members>Signature_Request__c.Fraud_Rules_To_Run__c</members>
+        <members>Signature_Request__c.IPAddress__c</members>
+        <members>Signature_Request__c.SigningLocation__c</members>
+        <members>Signature_Request__c.IP_Country__c</members>
+        <members>Signature_Request__c.IP_Country_Code__c</members>
+        <members>Signature_Request__c.IP_Region_Code__c</members>
+        <members>Signature_Request__c.IP_Region_Name__c</members>
+        <members>Signature_Request__c.IP_City__c</members>
+        <members>Signature_Request__c.Time_To_Complete_Seconds__c</members>
+        <members>Signature_Request__c.CompletedDate__c</members>
+        <members>Signature_Request__c.SignatureData__c</members>
+        <members>Signature_Request__c.SignatureMethod__c</members>
+        <members>Signature_Request__c.Fraud_Risk_Level__c</members>
+        <members>Signature_Request__c.Fraud_Score__c</members>
+        <members>Signature_Request__c.Fraud_Analysis_Details__c</members>
+
+        <!-- DocumentLifecycleConfiguration__c fields -->
+        <members>DocumentLifecycleConfiguration__c.DocumentTitle__c</members>
+        <members>DocumentLifecycleConfiguration__c.GeneratedClause__c</members>
+        <members>DocumentLifecycleConfiguration__c.Region__c</members>
+        <members>DocumentLifecycleConfiguration__c.Role__c</members>
+        <members>DocumentLifecycleConfiguration__c.ContractType__c</members>
+        <members>DocumentLifecycleConfiguration__c.ComplianceStatus__c</members>
+
+        <!-- AuditTrail__c fields -->
+        <members>AuditTrail__c.DocumentId__c</members>
+        <members>AuditTrail__c.Action__c</members>
+        <members>AuditTrail__c.Status__c</members>
+        <members>AuditTrail__c.Details__c</members>
+        <members>AuditTrail__c.Timestamp__c</members>
+        <members>AuditTrail__c.RecordId__c</members>
+        <members>AuditTrail__c.UserId__c</members>
+
+        <name>CustomField</name>
+    </types>
+
+    <types>
+        <members>FacePlusPlus_Credential__mdt.Default</members>
+        <name>CustomMetadata</name>
+    </types>
+
+    <types>
+        <members>FacePlusPlus_API</members>
+        <members>IP_Geolocation_Service</members>
+        <name>NamedCredential</name>
+    </types>
+
+    <types>
+        <members>ChartJS</members>
+        <name>StaticResource</name>
+    </types>
+
+    <types>
+        <members>DocumentPdf</members>
+        <name>ApexPage</name>
+    </types>
+
+    <version>64.0</version>
+</Package>
