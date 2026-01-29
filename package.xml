@@ -32,6 +32,7 @@
         <members>DocumentLifecycleConfiguration__c</members>
         <members>Signature_Request__c</members>
         <members>AuditTrail__c</members>
+        <members>Identity_Verification__c</members>
         <name>CustomObject</name>
     </types>
 
@@ -66,13 +67,38 @@
         <members>DocumentLifecycleConfiguration__c.ComplianceStatus__c</members>
 
         <!-- AuditTrail__c fields -->
-        <members>AuditTrail__c.DocumentId__c</members>
         <members>AuditTrail__c.Action__c</members>
-        <members>AuditTrail__c.Status__c</members>
+        <members>AuditTrail__c.AdditionalInfo__c</members>
+        <members>AuditTrail__c.AdditionalMetadata__c</members>
+        <members>AuditTrail__c.ClientIPAddress__c</members>
+        <members>AuditTrail__c.CorrelationId__c</members>
         <members>AuditTrail__c.Details__c</members>
-        <members>AuditTrail__c.Timestamp__c</members>
+        <members>AuditTrail__c.DeviceType__c</members>
+        <members>AuditTrail__c.DocumentId__c</members>
+        <members>AuditTrail__c.Error_Code__c</members>
+        <members>AuditTrail__c.IPAddress__c</members>
+        <members>AuditTrail__c.IP_Address__c</members>
+        <members>AuditTrail__c.LocationCity__c</members>
+        <members>AuditTrail__c.LocationCountry__c</members>
+        <members>AuditTrail__c.Location_City__c</members>
+        <members>AuditTrail__c.Location_Country__c</members>
+        <members>AuditTrail__c.Metadata__c</members>
+        <members>AuditTrail__c.OrganizationId__c</members>
         <members>AuditTrail__c.RecordId__c</members>
+        <members>AuditTrail__c.Record_Id__c</members>
+        <members>AuditTrail__c.Response_Time_Ms__c</members>
+        <members>AuditTrail__c.SessionId__c</members>
+        <members>AuditTrail__c.Session_User__c</members>
+        <members>AuditTrail__c.Status__c</members>
+        <members>AuditTrail__c.SystemInfo__c</members>
+        <members>AuditTrail__c.Timestamps__c</members>
+        <members>AuditTrail__c.Timestamp__c</members>
+        <members>AuditTrail__c.UserAgent__c</members>
+        <members>AuditTrail__c.UserDetails__c</members>
         <members>AuditTrail__c.UserId__c</members>
+        <members>AuditTrail__c.UserName__c</members>
+        <members>AuditTrail__c.User_Agent__c</members>
+        <members>AuditTrail__c.User__c</members>
 
         <name>CustomField</name>
     </types>
