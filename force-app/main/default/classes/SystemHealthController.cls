@@ -212,13 +212,13 @@ private static BusinessAnalyticsData getBusinessAnalyticsMetrics() {
     private static List<ActivityItem> getRecentActivityFeed() {
         List<ActivityItem> feed = new List<ActivityItem>();
         for (Signature_Request__c req : [
-            SELECT Id, SignerName__c, Status__c, DocumentId__r.DocumentTitle__c, CreatedDate, CompletedDate__c
+            SELECT Id, SignerName__c, Status__c, Document__r.DocumentTitle__c, CreatedDate, CompletedDate__c
             FROM Signature_Request__c
             ORDER BY CreatedDate DESC LIMIT 5
         ]) {
             String action = (req.Status__c == 'Signed')? 'signed' : 'was sent a request for';
             DateTime activityDate = (req.Status__c == 'Signed' && req.CompletedDate__c!= null)? req.CompletedDate__c : req.CreatedDate;
-            String message = req.SignerName__c + ' ' + action + ' document "' + req.DocumentId__r.DocumentTitle__c + '"';
+            String message = req.SignerName__c + ' ' + action + ' document "' + req.Document__r.DocumentTitle__c + '"';
             feed.add(new ActivityItem(activityDate, message));
         }
         return feed;

@@ -3,11 +3,11 @@ public with sharing class FacePlusPlusService {
     @AuraEnabled(cacheable=false)
     public static FaceDetectionResult detectFaces(String imageBase64) {
         // Securely fetch credentials from the Custom Metadata Type
-        FacePlusPlus_Credential__mdt credential = [
-            SELECT API_Key__c, API_Secret__c 
-            FROM FacePlusPlus_Credential__mdt 
-            WHERE DeveloperName = 'Default' LIMIT 1
-        ];
+            FacePlusPlus_Credential__mdt credential = [
+                SELECT ApiKey__c, ApiSecret__c 
+                FROM FacePlusPlus_Credential__mdt 
+                WHERE DeveloperName = 'Default' LIMIT 1
+            ];
 
         HttpRequest req = new HttpRequest();
         // The endpoint uses the Named Credential you created in Step 2
@@ -17,8 +17,8 @@ public with sharing class FacePlusPlusService {
 
         // Build the request body using the securely fetched credentials
         String body = '';
-        body += 'api_key=' + EncodingUtil.urlEncode(credential.API_Key__c, 'UTF-8');
-        body += '&api_secret=' + EncodingUtil.urlEncode(credential.API_Secret__c, 'UTF-8');
+            body += 'api_key=' + EncodingUtil.urlEncode(credential.ApiKey__c, 'UTF-8');
+            body += '&api_secret=' + EncodingUtil.urlEncode(credential.ApiSecret__c, 'UTF-8');
         body += '&image_base64=' + EncodingUtil.urlEncode(imageBase64, 'UTF-8');
         
         req.setHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -46,7 +46,7 @@ public with sharing class FacePlusPlusService {
 public static FaceCompareResult compareFaces(String faceToken1, String faceToken2) {
 
     FacePlusPlus_Credential__mdt credential = [
-        SELECT API_Key__c, API_Secret__c
+            SELECT ApiKey__c, ApiSecret__c
         FROM FacePlusPlus_Credential__mdt
         WHERE DeveloperName = 'Default'
         LIMIT 1
@@ -58,8 +58,8 @@ public static FaceCompareResult compareFaces(String faceToken1, String faceToken
     req.setTimeout(60000);
 
     String body = '';
-    body += 'api_key=' + EncodingUtil.urlEncode(credential.API_Key__c, 'UTF-8');
-    body += '&api_secret=' + EncodingUtil.urlEncode(credential.API_Secret__c, 'UTF-8');
+        body += 'api_key=' + EncodingUtil.urlEncode(credential.ApiKey__c, 'UTF-8');
+        body += '&api_secret=' + EncodingUtil.urlEncode(credential.ApiSecret__c, 'UTF-8');
     body += '&face_token1=' + EncodingUtil.urlEncode(faceToken1, 'UTF-8');
     body += '&face_token2=' + EncodingUtil.urlEncode(faceToken2, 'UTF-8');
 

@@ -1,10 +1,17 @@
+/**
+ * @description       : 
+ * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+ * @group             : 
+ * @last modified on  : 01-30-2026
+ * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+**/
 public with sharing class SignatureRequestController {
     // Fetches a single signature request for the signaturePad component
     @AuraEnabled(cacheable=true)
 public static Signature_Request__c getSignatureRequest(String requestId) {
     return [
         SELECT Id, Status__c, SignerName__c,
-               DocumentId__r.DocumentTitle__c
+               Document__r.DocumentTitle__c
         FROM Signature_Request__c
         WHERE Id = :requestId
     ];

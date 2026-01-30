@@ -1,14 +1,21 @@
+/**
+ * @description       : 
+ * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+ * @group             : 
+ * @last modified on  : 01-30-2026
+ * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+**/
 // force-app/main/default/classes/EmailNotificationService.cls
 public with sharing class EmailNotificationService {
 
     public static void sendSignatureRequest(String signatureRequestId) {
         Signature_Request__c request = [
-            SELECT Id, SignerEmail__c, SignerName__c, DocumentId__r.DocumentTitle__c 
+            SELECT Id, SignerEmail__c, SignerName__c, Document__r.DocumentTitle__c 
             FROM Signature_Request__c 
             WHERE Id = :signatureRequestId
         ];
 
-        String subject = 'Action Required: Signature Request for ' + request.DocumentId__r.DocumentTitle__c;
+        String subject = 'Action Required: Signature Request for ' + request.Document__r.DocumentTitle__c;
         String body = buildSignatureRequestEmailBody(request);
 
         Messaging.SingleEmailMessage email = new Messaging.SingleEmailMessage();
@@ -34,7 +41,7 @@ public with sharing class EmailNotificationService {
         return '<div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto;">' +
             '<h2 style="color: #005fb2;">Electronic Signature Required</h2>' +
             '<p>Dear ' + request.SignerName__c + ',</p>' +
-            '<p>You have been requested to electronically sign the document: <strong>' + request.DocumentId__r.DocumentTitle__c + '</strong>.</p>' +
+            '<p>You have been requested to electronically sign the document: <strong>' + request.Document__r.DocumentTitle__c + '</strong>.</p>' +
             '<p>Please click the button below to review and sign the document:</p>' +
             '<div style="text-align: center; margin: 30px 0;">' +
                 '<a href="' + signatureUrl + '" style="background-color: #0070d2; color: white; padding: 12px 24px; text-decoration: none; border-radius: 4px;">Sign Document Now</a>' +
@@ -60,7 +67,7 @@ public with sharing class EmailNotificationService {
     public static void sendSignatureCompletion(String requestId) {
         try {
             Signature_Request__c request = [
-                SELECT SignerEmail__c, SignerName__c, DocumentId__r.DocumentTitle__c, CompletedDate__c 
+                SELECT SignerEmail__c, SignerName__c, Document__r.DocumentTitle__c, CompletedDate__c 
                 FROM Signature_Request__c 
                 WHERE Id = :requestId
             ];
@@ -68,7 +75,7 @@ public with sharing class EmailNotificationService {
 
             Messaging.SingleEmailMessage email = new Messaging.SingleEmailMessage();
             email.setToAddresses(new String[]{request.SignerEmail__c});
-            email.setSubject('Document Signed Successfully: ' + request.DocumentId__r.DocumentTitle__c);
+            email.setSubject('Document Signed Successfully: ' + request.Document__r.DocumentTitle__c);
 
             String emailBody = buildCompletionEmail(request);
             email.setHtmlBody(emailBody);
@@ -92,7 +99,7 @@ public with sharing class EmailNotificationService {
             '<p>Dear ' + request.SignerName__c + ',</p>' +
             '<p>Thank you for signing the following document:</p>' +
             '<div style="background-color: #f8f9fa; padding: 15px; border-left: 4px solid #28a745; margin: 20px 0;">' +
-                '<h3>' + request.DocumentId__r.DocumentTitle__c + '</h3>' +
+                '<h3>' + request.Document__r.DocumentTitle__c + '</h3>' +
                 '<p><strong>Signed on:</strong> ' + formattedDate + '</p>' +
             '</div>' +
             '<p>Your signature has been recorded and the document is now complete. You can now close the window.</p>' +
